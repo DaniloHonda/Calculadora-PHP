@@ -34,7 +34,7 @@
       color: #ffffff; /* Texto branco */
     }
 
-    input[type="text"] {
+    input[type="number"] {
       width: 80%;
       padding: 8px;
       margin: 8px 0 20px 0;
@@ -47,7 +47,7 @@
     input[type="submit"] {
       width: 90%;
       padding: 10px;
-      background-color: #4CAF50;
+      background-color:rgb(88, 0, 252);
       color: white;
       border: none;
       border-radius: 20px;
@@ -56,7 +56,7 @@
     }
 
     input[type="submit"]:hover {
-      background-color: #45a049;
+      background-color:rgb(88, 0, 252);
     }
 
     .result {
@@ -64,7 +64,7 @@
       margin-top: 20px;
       font-size: 18px;
       font-weight: bold;
-      color: #4CAF50; /* Cor verde para o resultado */
+      color:rgb(88, 0, 252); /* Cor verde para o resultado */
       padding: 15px;
       background-color: #1e1e1e; /* Fundo escuro para o resultado */
       border-radius: 8px;
@@ -88,7 +88,7 @@
 <body>
   <form name="diameterForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <label>Diameter:</label>
-    <input type="text" name="d" required>
+    <input type="number" name="quantity" pattern="\d*" required>
 
     <input type="submit" value="Calculate">
   </form>

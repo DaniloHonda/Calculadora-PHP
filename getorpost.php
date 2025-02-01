@@ -33,7 +33,7 @@
       color: #ffffff; /* Texto branco */
     }
 
-    input[type="text"] {
+    input[type="number"] {
       width: 80%;
       padding: 8px;
       margin: 8px 0 20px 0;
@@ -46,7 +46,7 @@
     input[type="submit"] {
       width: 90%;
       padding: 10px;
-      background-color: #4CAF50;
+      background-color:rgb(255, 153, 0);
       color: white;
       border: none;
       border-radius: 20px;
@@ -55,7 +55,7 @@
     }
 
     input[type="submit"]:hover {
-      background-color: #45a049;
+      background-color:rgb(255, 153, 0);
     }
 
     .result {
@@ -63,7 +63,7 @@
       margin-top: 20px;
       font-size: 18px;
       font-weight: bold;
-      color: #4CAF50; /* Cor verde para o resultado */
+      color:rgb(255, 153, 0); /* Cor verde para o resultado */
       padding: 15px;
       background-color: #1e1e1e; /* Fundo escuro para o resultado */
       border-radius: 8px;
@@ -86,7 +86,7 @@
 <body>
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <label>Quantity:</label><br>
-    <input type="text" name="quantity" required>
+    <input type="text" name="quantity" pattern="\d*" required>
     <input type="submit" value="Calculate Total">
   </form>
 

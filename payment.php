@@ -40,7 +40,7 @@
       /* Texto branco */
     }
 
-    input[type="text"] {
+    input[type="number"] {
       width: 80%;
       padding: 8px;
       margin: 8px 0 20px 0;
@@ -103,7 +103,7 @@
 <body>
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="hideLabel()">
     <label for="h" id="hoursLabel">Hours worked:</label>
-    <input type="text" name="h" id="h" required>
+    <input type="number" name="h" pattern="\d*" required>
 
     <input type="submit" value="Submit">
   </form>

@@ -7,12 +7,12 @@
   <title>SAKA</title>
 </head>
 
-<body>
-  <form action="math.php" method="post">
+<body> 
+  <form name="diameterForm" action="math.php" method="post">
     <!-- <label>x:</label>
     <input type="text" name="x"> -->
 
-    <label>diameter:</label>
+    <label>Diameter:</label>
     <input type="text" name="d">
 
     <input type="submit" value="diameter">
@@ -32,7 +32,7 @@
 // pi() gets pi
 // rand() gets a random number
 
-// $total = abs($x)
+// $total = abs($x);
 // $total = round($x);
 // $total = floor($x);
 // $total = ceil($x);
@@ -51,14 +51,17 @@ $radius = null;
 $circunference = null;
 $area = null;
 $volume = null;
-
-$pi = pi();
-$radius = $d/2;
-$circunference = round(2*$pi*$radius, 2);
-$area = round($pi*pow($radius, 2), 2);
-$volume = round((4/3)*$pi*pow($radius, 3), 2);
-
-echo "<br>". "<br>". "Circunference = ". $circunference;
-echo "<br>". "<br>". "Area = ". $area;
-echo "<br>". "<br>". "Volume = ". $volume;
+if ($d > 0) {
+  $pi = pi();
+  $radius = $d/2;
+  $circunference = round(2*$pi*$radius, 2);
+  $area = round($pi*pow($radius, 2), 2);
+  $volume = round((4/3)*$pi*pow($radius, 3), 2);
+  
+  echo "<br>". "<br>". "Circunference = ". $circunference;
+  echo "<br>". "<br>". "Area = ". $area;
+  echo "<br>". "<br>". "Volume = ". $volume;
+} else {
+  echo "<br><br> Please enter a valid positive number!";
+}
 ?>

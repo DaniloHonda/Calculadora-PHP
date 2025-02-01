@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Capitals Exercise</title>
+  <title>Radio Button Exercise</title>
   <style>
     body {
       font-family: 'Times New Roman', Times, serif;
@@ -86,48 +86,35 @@
 </head>
 
 <body>
-  <form name="capitalForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-    <label>Country:</label>
-    <input type="text" name="country" required>
+  <form name="radioForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <input type="radio" name="visa" value="Visa">  <!-- same name to select just one option per time -->
+    Visa<br>
 
-    <input type="submit" value="Find Capital">
+    <input type="radio" name="visa" value="MasterCard">
+    MasterCard<br>
+
+    <input type="radio" name="visa" value="American Express">
+    American Express<br><br>
+
+    <input type="submit" name="confirm" value="Confirm">
+    <br><br>
+
+    <input type="checkbox" name="visa" value="American Express">
+    American Express<br>
+
   </form>
 
   <?php
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $country = $_POST['country'];
-
-    $capitals = array("usa"=>"Washington D.C.",
-                      "japan"=>"Kyoto",
-                      "germany"=>"Berlin",
-                      "france"=>"Paris",
-                      "india"=>"New Delhi",
-                      "italy"=>"Rome",
-                      "china"=>"Beijing",
-                      "russia"=>"Moscow",
-                      "uk"=>"London",
-                      "australia"=>"Canberra",
-                      "nigeria"=>"Abuja",
-                      "argentina"=>"Buenos Aires",
-                      "mexico"=>"Mexico City",
-                      "canada"=>"Ottawa",
-                      "peru"=>"Lima",
-                      "colombia"=>"Bogotá",
-                      "venezuela"=>"Caracas",
-                      "ecuador"=>"Quito",
-                      "bolivia"=>"La Paz",
-                      "guatemala"=>"Guatemala City",
-                      );
-
-    $capital = strtolower($capitals[$country]); // Deixa minusculo para aceitar independente da resposta
-
-    if (array_key_exists($country, $capitals)) {
-      $capital = $capitals[$country];
-      echo "<div class='result'>The capital is {$capital}</div>";
-    } else {
-      echo "<div class='error'>Country not found!</div>";
-    }
-  }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      if (isset($_POST["confirm"])) {
+        if (isset($_POST["visa"])) {
+          $option = $_POST["visa"];
+          echo "<div class = result>{$option}</div>";
+        } else {
+            echo "Please select a payment method.";
+          }
+        } 
+      }
   ?>
 </body>
 

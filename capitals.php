@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Math Exercise</title>
+  <title>Capitals Exercise</title>
   <style>
     body {
       font-family: 'Times New Roman', Times, serif;
@@ -34,7 +34,7 @@
       color: #ffffff; /* Texto branco */
     }
 
-    input[type="number"] {
+    input[type="text"] {
       width: 80%;
       padding: 8px;
       margin: 8px 0 20px 0;
@@ -47,7 +47,7 @@
     input[type="submit"] {
       width: 90%;
       padding: 10px;
-      background-color:rgb(88, 0, 252);
+      background-color:rgb(0, 132, 255);
       color: white;
       border: none;
       border-radius: 20px;
@@ -56,7 +56,7 @@
     }
 
     input[type="submit"]:hover {
-      background-color:rgb(88, 0, 252);
+      background-color:rgb(3, 113, 216);
     }
 
     .result {
@@ -64,7 +64,7 @@
       margin-top: 20px;
       font-size: 18px;
       font-weight: bold;
-      color:rgb(88, 0, 252); /* Cor verde para o resultado */
+      color:rgb(0, 132, 255); /* Cor verde para o resultado */
       padding: 15px;
       background-color: #1e1e1e; /* Fundo escuro para o resultado */
       border-radius: 8px;
@@ -86,40 +86,50 @@
 </head>
 
 <body>
-  <form name="diameterForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-    <label>Diameter:</label>
-    <input type="number" name="d" pattern="\d*" required>
+  <form name="cpitalForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <label>Country:</label>
+    <input type="text" name="country" required>
 
-    <input type="submit" value="Calculate">
+    <input type="submit" value="Find Capital">
   </form>
 
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $d = $_POST['d'];
+    $country = $_POST['country'];
 
-    $pi = null;
-    $radius = null;
-    $circunference = null;
-    $area = null;
-    $volume = null;
+    $capitals = array("usa"=>"Washington D.C.",
+                      "japan"=>"Kyoto",
+                      "germany"=>"Berlin",
+                      "france"=>"Paris",
+                      "india"=>"New Delhi",
+                      "italy"=>"Rome",
+                      "china"=>"Beijing",
+                      "russia"=>"Moscow",
+                      "uk"=>"London",
+                      "australia"=>"Canberra",
+                      "nigeria"=>"Abuja",
+                      "argentina"=>"Buenos Aires",
+                      "mexico"=>"Mexico City",
+                      "canada"=>"Ottawa",
+                      "peru"=>"Lima",
+                      "colombia"=>"Bogotá",
+                      "venezuela"=>"Caracas",
+                      "ecuador"=>"Quito",
+                      "bolivia"=>"La Paz",
+                      "guatemala"=>"Guatemala City",
+                      );
 
-    if ($d > 0 && is_numeric($d)) {
-      $pi = pi();
-      $radius = $d / 2;
-      $circunference = round(2 * $pi * $radius, 2);
-      $area = round($pi * pow($radius, 2), 2);
-      $volume = round((4 / 3) * $pi * pow($radius, 3), 2);
+    $capital = strtolower($capitals[$country]); // Deixa minusculo para aceitar independente da resposta
 
-      echo "<div class='result'>";
-      echo "Circumference = " . $circunference . "<br>";
-      echo "Area = " . $area . "<br>";
-      echo "Volume = " . $volume;
-      echo "</div>";
+    if (array_key_exists($country, $capitals)) {
+      $capital = $capitals[$country];
+      echo "<div class='result'>The capital is {$capital}</div>";
     } else {
-      echo "<div class='error'>Please enter a valid positive number!</div>";
+      echo "<div class='error'>Country not found!</div>";
     }
   }
   ?>
 </body>
 
 </html>
+

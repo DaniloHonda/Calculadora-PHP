@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Total</title>
+  <title>Order Total Exercise</title>
   <style>
     body {
       font-family: 'Times New Roman', Times, serif;
@@ -33,7 +33,7 @@
       color: #ffffff; /* Texto branco */
     }
 
-    input[type="number"] {
+    input[type="text"] {
       width: 80%;
       padding: 8px;
       margin: 8px 0 20px 0;

@@ -15,7 +15,9 @@
 </html>
 <?php
     //$_POST = Sensitive information
+    //         
     //$_GET = Not sensitive information
+    //        Ideal para requisições idempotentes (sem efeitos colaterais)
     $item = "pizza";
     $price = 5.99;
     $quantity = $_POST["quantity"];

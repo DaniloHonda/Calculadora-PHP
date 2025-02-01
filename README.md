@@ -8,3 +8,5 @@ Uma calculadora simples e interativa feita em PHP, com operações básicas: adi
 - **Interface intuitiva**: Design moderno e fácil de usar.
 - **Cálculos em tempo real**: O PHP processa a expressão e retorna o resultado.
 - **Responsivo**: Funciona bem em dispositivos móveis e desktops.
+
+## Repositório para exercícios em php
